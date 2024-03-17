@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% get_episodes as episodes %}
+
+<h1 class="font-extrabold pb-4" style="font-size: 22px;">
+  All Episodes
+</h1>
+
+{% if episodes %}
+<ul>
+  {% for episode in episodes %}
+  <li>
+    <a href="/episodes/{{ episode.id }}-{{ episode.title|slugify }}">{{ episode.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+No episode could be found.
+{% endif %}
+
+{% endblock content %}

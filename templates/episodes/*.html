@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% paths as paths %}
+{% get_identifier paths as identifier %}
+{% get_episode identifier as episode %}
+
+<h1 class="font-extrabold" style="font-size: 22px;">
+    {{ episode.title }}
+</h1>
+
+<p class="pb-4" style="color: #999;">
+    <span title="{{ episode.published_at }}">{{ episode.published_at|naturalday }}</span> - {{ episode.duration }}
+    seconds
+</p>
+
+<div id="buzzsprout-player-{{identifier}}" class="pb-4"></div>
+<script src="{{ episode.player_url }}?container_id=buzzsprout-player-{{ identifier }}&player=small"
+    type="text/javascript" charset="utf-8"></script>
+
+<p class="pb-4">
+    {{ episode.description|safe }}
+</p>
+
+{% endblock content %}
