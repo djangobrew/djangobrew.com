@@ -156,43 +156,11 @@
       </div>
     </div><!-- /podcast info -->
 
-    <div data-controller="tabs" data-tabs-active-class="episode__nav--current" data-tabs-show-on-load="">
-      <div class="episode__nav">
-        <a class="episode__nav--item episode__nav--current" data-tabs-target="tab" data-tab-toggle-panel="episodes"
-          data-action="click-&gt;tabs#toggle" href="#">Episodes</a>
-        <a class="episode__nav--item" data-tabs-target="tab" data-tab-toggle-panel="hosts"
-          data-action="click-&gt;tabs#toggle" href="#">Hosts</a>
-      </div>
-
-      <div class="episode-list__container" data-controller="pagination" data-pagination-url="/2326928.js"
-        data-action="scroll@window->pagination#scrollBottom" data-pagination-page="0" data-tabs-target="panel"
-        data-tabs-panel="episodes">
-        <div class="episode-list" data-pagination-target="container">
-          <span class="episode-list__row">
-            <a href="/2326928/14648511-episode-0-intros-memes-and-tater-tots?t=0" class="episode-list--play">
-              <span class="episode-list--icon"><i></i></span>
-            </a>
-            <a href="/2326928/14648511-episode-0-intros-memes-and-tater-tots"
-              class="episode-list--link flex flex-mobile">
-              <div class="episode-list--title font-extrabold leading-tight">
-                <span>Episode 0: Intros, memes, and tater-tots</span><small>March 07, 2024</small>
-              </div>
-              <span class="episode-list--artwork">
-                <img alt="Episode artwork" loading="lazy"
-                  src="https://www.djangobrew.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCRmFNbXdZPSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--bbffa7c5d9e8c593f85041b1f7242343c054ad53/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2QzNKbGMybDZaVWtpRFRZd01IZzJNREJlQmpzR1ZEb01aM0poZG1sMGVVa2lDMk5sYm5SbGNnWTdCbFE2QzJWNGRHVnVkRWtpRERZd01IZzJNREFHT3daVU9neHhkV0ZzYVhSNWFWVTZEMk52Ykc5eWMzQmhZMlZKSWdselVrZENCanNHVkE9PSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--8a9b4b1bc245a46b538f72d4d9b2ab0a7fbe8ac1/django-brew-cover-art%20(1).jpg" />
-              </span>
-            </a>
-          </span>
-        </div>
-        <div class="loading-icon center invisible" data-pagination-target="icon"></div>
-      </div>
-
-      <div class="host-list hide" data-tabs-target="panel" data-tabs-panel="hosts">
-        <turbo-frame loading="lazy" id="contributors_index" src="/2326928/hosts">
-          <div class="loading-icon center invisible" data-pagination-target="icon"></div>
-        </turbo-frame>
-      </div>
-    </div>
+    <div>
+      <div id='buzzsprout-large-player'></div>
+      <script type='text/javascript' charset='utf-8'
+        src='https://www.buzzsprout.com/2326928.js?container_id=buzzsprout-large-player&player=large'></script>
+    </div><!-- podcast player -->
 
     <div id="listings-modal" class="modal-takeover modal" data-modal-clickaway style="display:none">
       <div class="listen-modal">
