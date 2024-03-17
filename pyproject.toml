@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "djangobrew-com"
+version = "0.1.0"
+description = ""
+authors = ["adamghill <adamghill@yahoo.com>"]
+readme = "README.md"
+packages = [{include = "djangobrew"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+coltrane = {extras = ["deploy", "json5"], version = "^0.33.0"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
