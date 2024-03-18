@@ -1,5 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
-All about us!
+<div class="host-list">
+
+    <div class="host-list__row flex flex-align-center">
+        <i>
+            <img alt="Sangeeta" src="{% static 'img/sangeeta.jpg' %}">
+        </i>
+        <div>
+            <strong><a target="_blank" href="https://sangeeta.io/">Sangeeta Jadoonanan</a></strong>
+
+            <div class="trix-content">
+                <p>Sangeeta is a Pythonista who debugs her code with nothing but pure espresso shots and rubber
+                    duckies. When she's not building sites with Django, you can find her running a 5k, making cute
+                    stickers, or rewatching the Battle of Winterfell.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="host-list__row flex flex-align-center">
+        <i>
+            <img alt="Adam" src="{% static 'img/adam.jpg' %}">
+        </i>
+        <div>
+            <strong><a target="_blank" href="https://adamghill.com">Adam Hill</a></strong>
+
+            <div class="trix-content">
+                <p>Adam has been deploying websites made with Django to production for over 10 years, but who's
+                    counting. Chronic starter of new projects, sometimes creator of open-source libraries, and lover
+                    of coffee.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
 {% endblock content %}

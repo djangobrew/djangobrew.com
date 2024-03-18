@@ -12,18 +12,35 @@
 {% get_identifier paths as identifier %}
 {% get_episode identifier as episode %}
 
-<h1 class="font-extrabold" style="font-size: 22px;">
+<h1 class="font-extrabold text-2xl pt-4">
     {{ episode.title }}
 </h1>
 
-<p class="pb-4" style="color: #999;">
-    <span title="{{ episode.published_at }}">{{ episode.published_at|naturalday }}</span> - {{ episode.duration }}
-    seconds
+<p class="pb-4 text-gray-500">
+    <span title="{{ episode.published_at }}">{{ episode.published_at|naturalday }}</span>
 </p>
 
-<div id="buzzsprout-player-{{identifier}}" class="pb-4"></div>
+<div id="buzzsprout-player-{{identifier}}"></div>
 <script src="{{ episode.player_url }}?container_id=buzzsprout-player-{{ identifier }}&player=small"
     type="text/javascript" charset="utf-8"></script>
+
+<div class="episode__share flex flex-justify-between justify-end">
+    <div class="episode__share-column--small">
+        <div class="episode__share--title">Share Episode</div>
+
+        <div class="share__container">
+            <a class="share__item share__item--facebook" title="Share on Facebook"
+                href="http://www.facebook.com/sharer.php?u=https://www.djangobrew.com/2326928/14648511">Share on
+                Facebook</a>
+            <a class="share__item share__item--twitter" title="Share on Twitter"
+                href="http://twitter.com/intent/tweet?text=Listening+to+%22Episode+0%3A+Intros%2C+memes%2C+and+tater-tots%22+at+&amp;url=https%3A%2F%2Fwww.djangobrew.com%2F2326928%2F14648511">Share
+                on Twitter</a>
+            <a class="share__item share__item--linkedin" title="Share on LinkedIn"
+                href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.djangobrew.com%2F2326928%2F14648511-episode-0-intros-memes-and-tater-tots">Share
+                on LinkedIn</a>
+        </div>
+    </div>
+</div>
 
 <p class="pb-4">
     {{ episode.description|safe }}

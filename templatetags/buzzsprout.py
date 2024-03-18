@@ -28,9 +28,7 @@ def get_episodes() -> list:
     podcast_id = getenv("BUZZSPROUT_PODCAST_ID")
     api_token = getenv("BUZZSPROUT_API_TOKEN")
 
-    episodes = cache.get(CACHE_KEY_EPISODES, [])
-
-    if episodes:
+    if episodes := cache.get(CACHE_KEY_EPISODES, []):
         return episodes
 
     try:
