@@ -12,9 +12,9 @@
 {% get_identifier paths as identifier %}
 {% get_episode identifier as episode %}
 
-<h1 class="font-extrabold text-2xl pt-4">
+<h2 class="font-extrabold text-2xl pt-4">
     {{ episode.title }}
-</h1>
+</h2>
 
 <p class="pb-4 text-gray-500">
     <span title="{{ episode.published_at }}">{{ episode.published_at|naturalday }}</span>
