@@ -1,0 +1,25 @@
+on:
+  push:
+    branches:
+      - main
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  deploy-to-caprover:
+    name: Deploy to CapRover
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: adamghill/build-docker-and-deploy-to-caprover@2.15.0
+        with:
+          caprover-app-name: djangobrew-web
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          caprover-server-url: ${{ secrets.CAPROVER_SERVER_URL }}
+          caprover-app-token: ${{ secrets.CAPROVER_APP_TOKEN }}
