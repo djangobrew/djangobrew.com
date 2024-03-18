@@ -10,6 +10,8 @@ packages = [{include = "djangobrew"}]
 python = "^3.10"
 coltrane = {extras = ["deploy", "json5"], version = "^0.33.0"}
 httpx = "^0.27.0"
+redis = "^5.0.3"
+hiredis = "^2.3.2"
 
 
 [build-system]
