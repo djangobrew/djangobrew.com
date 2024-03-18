@@ -1,6 +1,6 @@
 # djangobrew.com
 
-The website for the Django Brew podcast with @sjbitcode and @adamghill.
+The website for the Django Brew podcast with https://github.com/sjbitcode and https://github.com/adamghill.
 
 ## Install
 
