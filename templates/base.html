@@ -71,6 +71,10 @@
       height: 220px;
     }
   </style>
+
+  {% if !DEBUG %}
+  <script defer data-domain="djangobrew.com" src="https://plausible.io/js/script.js"></script>
+  {% endif %}
 </head>
 
 <body class="podcast">
