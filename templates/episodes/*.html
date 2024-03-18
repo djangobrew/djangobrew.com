@@ -2,6 +2,12 @@
 
 {% block content %}
 
+<style>
+    p {
+        margin-bottom: 25px;
+    }
+</style>
+
 {% paths as paths %}
 {% get_identifier paths as identifier %}
 {% get_episode identifier as episode %}
@@ -22,5 +28,7 @@
 <p class="pb-4">
     {{ episode.description|safe }}
 </p>
+
+{% include '_episode_footer.html' %}
 
 {% endblock content %}

@@ -42,18 +42,10 @@
     content="A fun, caffeine-powered podcast about the Django web framework by Adam Hill and Sangeeta Jadoonanan!">
   <meta name="twitter:image" content="{% static 'img/django-brew-logo-large.jpg' %}">
 
-  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="{% static 'img/django-brew-logo.jpg' %}">
 
-  <script
-    src="https://assets.buzzsprout.com/assets/public_main-5bfbc6e21e3556c2a587692e267e417b6da2669a1e144558a9e4988be90bc87a.js"
-    defer="defer"></script>
-  <script
-    src="https://assets.buzzsprout.com/assets/public-d57d9f94d4a0511f526b46089247b0059e74aec11e2ca5ef649d799bfa034747.js"
-    defer="defer"></script>
-  <link rel="stylesheet"
-    href="https://assets.buzzsprout.com/assets/public-ef96173017b1ade8b27afde1ae0fa709e3dc354c164e44de1de26337693a6f7b.css" />
-  <link rel="stylesheet"
-    href="https://assets.buzzsprout.com/assets/tailwind-4cd71770dd917ff10d33e0f5b72a61e66fc3fa1e0a6e41df9425a5f590efa849.css" />
+  <link rel="stylesheet" href="{% static 'css/buzzsprout.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/tailwind-3.3.5.css' %}" />
 
   <style type="text/css">
     .background-header,
