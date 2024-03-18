@@ -1,14 +1,13 @@
+import json
+from datetime import datetime
 from os import getenv
 
-from datetime import datetime
-from django.http import Http404
-from django.utils import timezone
-
 import httpx
-
 from django import template
 from django.conf import settings
 from django.core.cache import cache
+from django.http import Http404
+from django.utils import timezone
 
 register = template.Library()
 
@@ -78,7 +77,7 @@ def get_episode(identifier: str) -> dict:
     for e in episodes:
         if str(e["id"]) == identifier:
             episode = e
-            _cache_it(CACHE_KEY_EPISODES, episode)
+            _cache_it(cache_key, episode)
 
             break
 
