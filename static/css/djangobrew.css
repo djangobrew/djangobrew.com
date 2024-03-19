@@ -1,0 +1,26 @@
+.background-header,
+header {
+  background-color: #0c5e3f;
+}
+
+a,
+.primary-link-color {
+  color: #0c5e3f;
+}
+
+.episode-list--play i {
+  background-color: #92ce00;
+}
+
+.social-nav svg {
+  fill: #0c5e3f;
+}
+
+.background-header,
+header {
+  height: 220px;
+}
+
+footer {
+  border-top: solid 4px #0c5e3f;
+}

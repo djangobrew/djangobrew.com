@@ -46,31 +46,7 @@
 
   <link rel="stylesheet" href="{% static 'css/buzzsprout.css' %}" />
   <link rel="stylesheet" href="{% static 'css/tailwind-3.3.5.css' %}" />
-
-  <style type="text/css">
-    .background-header,
-    header {
-      background-color: #0c5e3f;
-    }
-
-    a,
-    .primary-link-color {
-      color: #0c5e3f;
-    }
-
-    .episode-list--play i {
-      background-color: #92ce00;
-    }
-
-    .social-nav svg {
-      fill: #0c5e3f;
-    }
-
-    .background-header,
-    header {
-      height: 220px;
-    }
-  </style>
+  <link rel="stylesheet" href="{% static 'css/djangobrew.css' %}" />
 
   {% if not DEBUG %}
   <script defer data-domain="djangobrew.com" src="https://plausible.io/js/script.js"></script>
@@ -81,7 +57,7 @@
 
   {% include '_header.html' %}
 
-  <div class="container">
+  <div class="container" style="min-height: 50vh;">
     <div class="podcast-info flex gap-11">
       <div class="podcast-info__artwork basis-[300px] grow-0 shrink-0">
         <div class="podcast-info__artwork--image img-loading w-fit max-w-[300px]">
@@ -133,8 +109,58 @@
     {% block content %}{% endblock content %}
   </div><!-- /container -->
 
-  <footer id="footer" class="md:max-w-3xl mx-auto">
-    All content © 2024 Django Brew
+  <footer class="mt-20 text-black bg-gray-100 text-lg pb-4">
+    <div class="pt-12 pb-8 pl-4 pr-4 grid grid-cols-3 place-items-center items-start">
+      <div>
+        <p class="text-xl font-bold text-center">
+          Projects
+        </p>
+        <ul>
+          <li>
+            🦄 <a href="https://djangostickers.com">djangostickers.com</a>
+          </li>
+          <li>
+            📓 <a href="https://alldjango.com">alldjango.com</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-xl font-bold text-center">
+          Sites
+        </p>
+        <ul>
+          <li>
+            ⭐️ <a href="https://sangeeta.io">sangeeta.io</a>
+          </li>
+          <li>
+            ⭐️ <a href="https://adamghill.com">adamghill.com</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-xl font-bold text-center">
+          Colophon
+        </p>
+        <ul>
+          <li>
+            🎶 <a href="https://coltrane.readthedocs.io">Coltrane</a>
+          </li>
+          <li>
+            💨 <a href="https://tailwindcss.com">Tailwind</a>
+          </li>
+          <li>
+            🎙️ <a href="https://www.buzzsprout.com">Buzzsprout</a>
+          </li>
+          <li>
+            ☕️ <a href="https://www.cafebustelo.com">Café Bustelo</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="text-center">
+      All content © 2024 Django Brew
+    </p>
   </footer>
 
 </body>
