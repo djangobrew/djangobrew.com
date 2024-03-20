@@ -58,8 +58,8 @@
   {% include '_header.html' %}
 
   <div class="container" style="min-height: 50vh;">
-    <div class="podcast-info flex gap-11">
-      <div class="podcast-info__artwork basis-[300px] grow-0 shrink-0">
+    <div class="podcast-info center flex gap-11">
+      <div class="podcast-info__artwork flex md:block justify-center md:justify-normal basis-[300px] grow-0 shrink-0">
         <div class="podcast-info__artwork--image img-loading w-fit max-w-[300px]">
           <a href="/">
             <img alt="Django Brew Podcast Logo" loading="lazy" class="rounded-lg"
@@ -109,10 +109,10 @@
     {% block content %}{% endblock content %}
   </div><!-- /container -->
 
-  <footer class="mt-20 text-black bg-gray-100 text-lg pb-4">
-    <div class="pt-12 pb-8 pl-4 pr-4 grid grid-cols-3 place-items-center items-start">
+  <footer class="mt-20 text-black bg-gray-50 text-lg pb-4">
+    <div class="pt-8 md:pt-12 pb-8 pl-4 pr-4 grid grid-cols-1 md:grid-cols-3 place-items-center items-start gap-8 md:gap-0">
       <div>
-        <p class="text-xl font-bold text-center">
+        <p class="text-2xl md:text-xl font-bold text-center">
           Projects
         </p>
         <ul>
@@ -125,7 +125,7 @@
         </ul>
       </div>
       <div>
-        <p class="text-xl font-bold text-center">
+        <p class="text-2xl md:text-xl font-bold text-center">
           Sites
         </p>
         <ul>
@@ -138,7 +138,7 @@
         </ul>
       </div>
       <div>
-        <p class="text-xl font-bold text-center">
+        <p class="text-2xl md:text-xl font-bold text-center">
           Colophon
         </p>
         <ul>
