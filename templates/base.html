@@ -112,35 +112,6 @@
       </div>
     </div><!-- /podcast info -->
 
-    <!-- Podcast providers modal -->
-    <div id="listings-modal" class="modal-takeover modal block hidden" data-modal-clickaway="">
-      <div class="listen-modal">
-        <div type="button" class="listen-modal--close" data-dismiss="">×</div>
-        <h3 class="listen-modal--title font-extrabold">Listen to this podcast on</h3>
-    
-        <div class="listen-modal__list" data-listing-target="iconList">
-            <a class="listen-modal__item--apple" target="_blank" rel="noopener" href="https://podcasts.apple.com/us/podcast/django-brew/id1735114591">Apple Podcasts</a>
-            <a class="listen-modal__item--spotify" target="_blank" rel="noopener" href="https://open.spotify.com/show/0CsNsFFmeUHUdm5W2rE11z">Spotify</a>
-            <a class="listen-modal__item--amazon" target="_blank" rel="noopener" href="https://music.amazon.com/podcasts/2cbb2aeb-208a-4c55-ad67-74d1e71a9e7a">Amazon Music</a>
-            <a class="listen-modal__item--podcastindex" target="_blank" rel="noopener" href="https://podcastindex.org/podcast/6824856">Podcast Index</a>
-            <a class="listen-modal__item--overcast" target="_blank" rel="noopener" href="https://overcast.fm/itunes1735114591">Overcast</a>
-            <a class="listen-modal__item--youtube" target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PLNPF9ss1bBcdnDyPrB1qIXDr2mMXQS02L">YouTube</a>
-            <a class="listen-modal__item--iheartradio" target="_blank" rel="noopener" href="https://www.iheart.com/podcast/269-django-brew-157644786/">iHeartRadio</a>
-            <a class="listen-modal__item--podcastaddict" target="_blank" rel="noopener" href="https://podcastaddict.com/podcast/django-brew/5000636">Podcast Addict</a>
-            <a class="listen-modal__item--castro" target="_blank" rel="noopener" href="https://castro.fm/itunes/1735114591">Castro</a>
-            <a class="listen-modal__item--castbox" target="_blank" rel="noopener" href="https://castbox.fm/vic/1735114591?ref=buzzsprout">Castbox</a>
-            <a class="listen-modal__item--podchaser" target="_blank" rel="noopener" href="https://www.podchaser.com/podcasts/django-brew-5647345">Podchaser</a>
-            <a class="listen-modal__item--pocketcasts" target="_blank" rel="noopener" href="https://pca.st/74hl7idl">Pocket Casts</a>
-            <a class="listen-modal__item--deezer" target="_blank" rel="noopener" href="https://www.deezer.com/show/1000752252">Deezer</a>
-            <a class="listen-modal__item--listennotes" target="_blank" rel="noopener" href="https://www.listennotes.com/c/72b2dd1e5a6f4cae8a0752300d724a22/">Listen Notes</a>
-            <a class="listen-modal__item--playerfm" target="_blank" rel="noopener" href="https://player.fm/series/series-3556643">Player FM</a>
-            <a class="listen-modal__item--goodpods" target="_blank" rel="noopener" href="https://www.goodpods.com/podcasts-aid/1735114591">Goodpods</a>
-            <a class="listen-modal__item--podfriend" target="_blank" rel="noopener" href="https://web.podfriend.com/podcast/1735114591">Podfriend</a>
-          <a class="listen-modal__item--rss" target="_blank" rel="noopener" href="https://feeds.buzzsprout.com/2326928.rss">RSS Feed</a>
-        </div>
-      </div>
-    </div><!-- /Podcast providers modal -->
-
     {% block content %}{% endblock content %}
   </div><!-- /container -->
 
@@ -201,59 +172,18 @@
   <script>
     const revealBtn = document.querySelector("#revealPodcasts")
     const hiddenProviders = document.querySelector("#hidden-providers")
-    const providersModal = document.querySelector("#listings-modal")
-    // `modalCloseBtn` should probably have an id?
-    const modalCloseBtn = document.querySelector(".listen-modal--close")
 
-
-    // --- add event listeners ---
     revealBtn.addEventListener("click", togglePodcastProviders)
 
-    modalCloseBtn.addEventListener("click", (e) => {
-      closeModal()
-    })
-
-    document.addEventListener("click", (e) => {
-      // for modal approach, when anywhere outside modal is clicked
-      if (e.target === providersModal) {
-        closeModal()
-      }
-    })
-
-
-    // --- toggle-things functions ---
-    function closeModal() {
-        providersModal.classList.add("hidden")
-        document.querySelector(".modal-backdrop").remove()
-        revealBtn.innerHTML = "+"
-    }
-
-    function showModal() {
-      providersModal.classList.remove("hidden")
-      document.body.insertAdjacentHTML('beforeend', '<div class="modal-backdrop"></div>')
-    }
-
     function togglePodcastProviders(e) {
-      // this currently does things for both modal and non-modal approach
-      // until Adam and Sangeeta decide on what looks best!!!
 
       if (e.currentTarget.innerHTML === "+") {
         e.currentTarget.innerHTML = "-"
-        
-        // modal approach
-        // 🔥 comment this out to test non-modal approach!
-        showModal()
-        
-        // non-modal approach (display div with rest of icons)
-        // 🔥 uncomment this out to test non-modal approach!
-        // hiddenProviders.classList.remove("hidden")
+        hiddenProviders.classList.remove("hidden")
       }
       else {
         e.currentTarget.innerHTML = "+"
-
-        // non-modal approach (hide div with rest of icons)
-        // 🔥 uncomment this out to test non-modal approach!
-        // hiddenProviders.classList.add("hidden")
+        hiddenProviders.classList.add("hidden")
       }
     }
   </script>
