@@ -172,11 +172,9 @@
   <script>
     const revealBtn = document.querySelector("#revealPodcasts")
     const hiddenProviders = document.querySelector("#hidden-providers")
-
     revealBtn.addEventListener("click", togglePodcastProviders)
 
     function togglePodcastProviders(e) {
-
       if (e.currentTarget.innerHTML === "+") {
         e.currentTarget.innerHTML = "-"
         hiddenProviders.classList.remove("hidden")
