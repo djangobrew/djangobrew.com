@@ -42,10 +42,14 @@
     </div>
 </div>
 
-<p class="pb-4">
-    {{ episode.description|safe }}
-</p>
+<div class="flex">
+    <div class="episode__description">
+        {{ episode.description|safe }}
 
-{% include '_episode_footer.html' %}
+        <hr class="border-gray-100 border-2 mt-10 mb-10">
+
+        {% include '_episode_footer.html' %}
+    </div>
+</div>
 
 {% endblock content %}

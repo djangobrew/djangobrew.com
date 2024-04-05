@@ -24,3 +24,9 @@ header {
 footer {
   border-top: solid 4px #0c5e3f;
 }
+
+@media screen and (max-width: 768px) {
+  .podcast-info__artwork {
+    margin-top: -135px;
+  }
+}
