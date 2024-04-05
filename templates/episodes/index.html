@@ -4,18 +4,27 @@
 
 {% get_episodes as episodes %}
 
-<h2 class="font-extrabold pb-4 text-2xl">
-  All Episodes
-</h2>
 
 {% if episodes %}
-<ul>
-  {% for episode in episodes %}
-  <li>
-    <a href="/episodes/{{ episode.id }}-{{ episode.title|slugify }}">{{ episode.title }}</a>
-  </li>
-  {% endfor %}
-</ul>
+<div class="episode-list__container">
+  <div class="episode-list">
+    <div class="episode__nav"></div>
+
+    {% for episode in episodes %}
+      <span class="episode-list__row">
+        <a href="/episodes/{{ episode.id }}-{{ episode.title|slugify }}" class="episode-list--play">
+          <span class="episode-list--icon"><i></i></span>
+        </a>
+        <a href="/episodes/{{ episode.id }}-{{ episode.title|slugify }}" class="episode-list--link flex flex-mobile">
+          <div class="episode-list--title font-extrabold leading-tight">
+            <span>{{ episode.title }}</span><small>{{ episode.published_at|date:'N d, Y'  }}</small>
+          </div>
+        </a>
+      </span>
+    {% endfor %}
+
+  </div>
+</div>
 {% else %}
 No episode could be found.
 {% endif %}
