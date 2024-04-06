@@ -48,7 +48,7 @@
   <link rel="stylesheet" href="{% static 'css/tailwind-3.3.5.css' %}" />
   <link rel="stylesheet" href="{% static 'css/djangobrew.css' %}" />
 
-  <script src="{% static 'js/dork.min.js' %}"></script>
+  <script src="https://unpkg.com/dorkjs@latest"></script>
 
   {% if not DEBUG %}
   <script defer data-domain="djangobrew.com" src="https://plausible.io/js/script.js"></script>
@@ -192,15 +192,15 @@
   </footer>
 
   <script>
-    onload(() => {
-      listen("#revealPodcasts", "click", (e) => {
-        const hiddenProviders = $("#hidden-providers");
+    dork.onload((...[, , $]) => {
+      $.listen("#revealPodcasts", "click", (_, el) => {
+        const hiddenProviders = $.$("#hidden-providers");
 
-        if (e.currentTarget.innerHTML === "+") {
-          e.currentTarget.innerHTML = "-";
+        if ($.inner(el) === "+") {
+          $.inner(el, "-");
           hiddenProviders.classList.remove("hidden");
         } else {
-          e.currentTarget.innerHTML = "+";
+          $.inner(el, "+");
           hiddenProviders.classList.add("hidden");
         }
       }, true);
