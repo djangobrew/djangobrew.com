@@ -135,39 +135,7 @@
 
     {% block content %}{% endblock content %}
 
-    <form action="https://app.keila.io/forms/nfrm_voRMjG3g"
-      class="contact-form container bg-white rounded py-4 md:py-8 flex flex-col gap-4" method="post"
-      style="background-color:#f9fafb!important;color:#111827!important">
-      <h1 class="text-4xl my-4">
-        Do you ❤️ Django?
-      </h1>
-      <div class="text-xl">
-        Stay up to date with Django by subscribing to the Django Brew newsletter!
-      </div>
-      <div class="flex flex-col">
-        <label for="contact_email">
-          Email
-        </label>
-        <input id="contact_email" name="contact[email]"
-          style="background-color:#ffffff!important;border-color:#6b7280!important;color:#111827!important"
-          type="email" />
-      </div>
-      <div class="flex flex-col">
-        <div class="h-captcha" data-sitekey="a1c5fab7-71df-4ea4-af75-87a3d07c61de" data-theme="dark">
-        </div>
-        <script async="async" defer="defer" src="https://hcaptcha.com/1/api.js">
-        </script>
-      </div>
-      <div class="flex justify-start">
-        <button class="button button--cta button--large"
-          style="background-color:#047857!important;color:#f9fafb!important">
-          Submit
-        </button>
-      </div>
-      <div class="text-xs">
-        No spam, no selling of data, no worries.
-      </div>
-    </form>
+    {% include '_newsletter.html' %}
 
   </div><!-- /container -->
 
