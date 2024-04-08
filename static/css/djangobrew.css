@@ -25,6 +25,18 @@ footer {
   border-top: solid 4px #0c5e3f;
 }
 
+.newsletter .button {
+  background-color: #0d5e3f !important;
+  color: #f9fafb !important;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.newsletter #contact_email {
+  margin-right: 10px !important;
+  padding: 8px;
+}
+
 @media screen and (max-width: 768px) {
   .podcast-info__artwork {
     margin-top: -135px;
