@@ -1,33 +1,25 @@
 <form action="https://app.keila.io/forms/nfrm_voRMjG3g"
-  class="contact-form container bg-white rounded py-4 md:py-8 flex flex-col gap-4 mt-8" method="post"
-  style="background-color: #f9fafb !important; color: #111827 !important">
-  <h1 class="text-4xl mt-4 leading-tight font-extrabold">
+  class="newsletter contact-form container bg-gray-50 rounded py-4 md:py-8 flex flex-col gap-4 mt-8" method="post">
+  <h1 class="text-4xl mt-4 leading-tight font-extrabold text-center">
     Do you ❤️ Django?
   </h1>
-  <div class="mb-4">
+  <div class="mb-4 text-center text-lg">
     Stay up to date by subscribing to the Django Brew newsletter!
   </div>
-  <div class="flex flex-col">
-    <label for="contact_email">
-      Email Address
-    </label>
-    <input id="contact_email" name="contact[email]"
-      style="background-color: #ffffff !important; border-color: #6b7280 !important; color: #111827 !important;"
-      type="email" placeholder="unicorn@djangobrew.com" />
+  <div class="flex flex-col md:flex-row">
+    <input id="contact_email" name="contact[email]" type="email" placeholder="unicorn@djangobrew.com" />
+    
+    <button class="button button--cta button--large mt-4 md:mt-0">
+      Submit
+    </button>
   </div>
   <div class="flex flex-col">
-    <div class="h-captcha" data-sitekey="a1c5fab7-71df-4ea4-af75-87a3d07c61de" data-theme="light">
+    <div class="h-captcha m-auto" data-sitekey="a1c5fab7-71df-4ea4-af75-87a3d07c61de" data-theme="light">
     </div>
     <script async="async" defer="defer" src="https://hcaptcha.com/1/api.js">
     </script>
   </div>
-  <div class="flex justify-start">
-    <button class="button button--cta button--large"
-      style="background-color: #0c5e3f !important; color: #f9fafb !important; border-radius: 5px; padding: 8px;">
-      Submit
-    </button>
-  </div>
-  <div class="text-xs">
+  <div class="text-xs text-center">
     No spam, no selling of data, no worries.
   </div>
 </form>
