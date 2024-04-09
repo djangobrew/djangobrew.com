@@ -37,6 +37,11 @@ footer {
   padding: 8px;
 }
 
+.newsletter #contact_email:focus {
+  --tw-ring-color: #0d5e3f;
+  border-color: #0d5e3f;
+}
+
 @media screen and (max-width: 768px) {
   .podcast-info__artwork {
     margin-top: -135px;
