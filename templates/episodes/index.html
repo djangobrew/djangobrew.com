@@ -11,16 +11,13 @@
     <div class="episode__nav"></div>
 
     {% for episode in episodes %}
-      <span class="episode-list__row">
-        <a href="/episodes/{{ episode.id }}-{{ episode.title|slugify }}" class="episode-list--play">
-          <span class="episode-list--icon"><i></i></span>
-        </a>
-        <a href="/episodes/{{ episode.id }}-{{ episode.title|slugify }}" class="episode-list--link flex flex-mobile">
-          <div class="episode-list--title font-extrabold leading-tight">
-            <span>{{ episode.title }}</span><small>{{ episode.published_at|date:'N d, Y'  }}</small>
-          </div>
-        </a>
-      </span>
+    <span class="episode-list__row">
+      <a href="/episodes/{{ episode.id }}-{{ episode.title|slugify }}" class="episode-list--link flex flex-mobile">
+        <div class="episode-list--title font-extrabold leading-tight">
+          <span>{{ episode.title }}</span><small>{{ episode.published_at|date:'N d, Y'  }}</small>
+        </div>
+      </a>
+    </span>
     {% endfor %}
 
   </div>
