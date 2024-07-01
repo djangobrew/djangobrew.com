@@ -31,7 +31,10 @@ def get_episodes() -> list:
 
     try:
         url = f"https://www.buzzsprout.com/api/{podcast_id}/episodes.json"
-        headers = {"Authorization": f"Token token={api_token}"}
+        headers = {
+            "Authorization": f"Token token={api_token}",
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        }
 
         res = httpx.get(url, headers=headers)
         res.raise_for_status()
