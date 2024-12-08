@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+FEEDBACK
+
+<a href="https://www.buzzsprout.com/twilio/text_messages/2326928/open_sms" rel="noopener" target="_blank"
+  class="bg-white py-1 px-4 border border-gray-400 rounded-full hover:no-underline hover:scale-105 transition-transform h-[35px] hidden md:block">
+  Send Feedback ❤️
+</a>
+
+<style>
+  p {
+    margin-bottom: 25px;
+  }
+</style>
+
+{% paths as paths %}
+{% get_identifier paths as identifier %}
+{% get_episode identifier as episode %}
+
+<h2 class="font-extrabold text-2xl pt-4">
+  {{ episode.title }}
+</h2>
+
+<p class="pb-4 text-gray-500">
+  <span title="{{ episode.published_at }}">{{ episode.published_at|naturalday }}</span>
+</p>
+
+<div id="buzzsprout-player-{{identifier}}"></div>
+<script src="{{ episode.player_url }}?container_id=buzzsprout-player-{{ identifier }}&player=small"
+  type="text/javascript" charset="utf-8"></script>
+
+<div class="episode__share flex flex-justify-between justify-end">
+  <div class="episode__share-column--small">
+    <div class="episode__share--title">Share Episode</div>
+
+    <div class="share__container">
+      <a class="share__item share__item--facebook" title="Share on Facebook"
+        href="http://www.facebook.com/sharer.php?u=https://www.djangobrew.com/2326928/14648511">Share on
+        Facebook</a>
+      <a class="share__item share__item--twitter" title="Share on Twitter"
+        href="http://twitter.com/intent/tweet?text=Listening+to+%22Episode+0%3A+Intros%2C+memes%2C+and+tater-tots%22+at+&amp;url=https%3A%2F%2Fwww.djangobrew.com%2F2326928%2F14648511">Share
+        on Twitter</a>
+      <a class="share__item share__item--linkedin" title="Share on LinkedIn"
+        href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.djangobrew.com%2F2326928%2F14648511-episode-0-intros-memes-and-tater-tots">Share
+        on LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+<div class="flex">
+  <div class="episode__description">
+    {{ episode.description|safe }}
+
+    <hr class="border-gray-100 border-2 mt-10 mb-10">
+
+    {% include '_episode_footer.html' %}
+  </div>
+</div>
+
+{% endblock content %}

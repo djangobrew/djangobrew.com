@@ -1,49 +1,55 @@
-# Creating a python base with shared environment variables
-FROM python:3.10.8-slim as python-base
-ENV PYTHONUNBUFFERED=1 \
-    PYTHONDONTWRITEBYTECODE=1 \
-    PIP_NO_CACHE_DIR=off \
-    PIP_DISABLE_PIP_VERSION_CHECK=on \
-    PIP_DEFAULT_TIMEOUT=100 \
-    POETRY_HOME="/opt/poetry" \
-    POETRY_VIRTUALENVS_IN_PROJECT=true \
-    POETRY_NO_INTERACTION=1 \
-    PYSETUP_PATH="/opt/pysetup" \
-    VENV_PATH="/opt/pysetup/.venv"
+# Layer with Python and some shared environment variables
+FROM python:3.10-slim-bullseye AS python
 
-ENV PATH="$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
+# Layer for installing Python dependencies
+FROM python AS dependencies
 
-# builder-base is used to build dependencies    
-FROM python-base as builder-base
-RUN apt-get update \
-    && apt-get install --no-install-recommends -y \
-        curl \
-        build-essential
+ENV VIRTUAL_ENV=/opt/venv
 
-# Install Poetry - respects $POETRY_VERSION & $POETRY_HOME
-ENV POETRY_VERSION=1.7.1
-RUN curl -sSL https://install.python-poetry.org | python3 -
+# Add some libraries sometimes needed for building Python dependencies, e.g. gcc
+RUN --mount=type=cache,target=/var/cache/apt,sharing=locked --mount=type=cache,target=/var/lib/apt,sharing=locked \
+    apt-get update --fix-missing && \
+    apt-get install --no-install-recommends -y \
+    build-essential
 
-# We copy our Python requirements here to cache them
-# and install only runtime deps using poetry
-WORKDIR $PYSETUP_PATH
-COPY ./poetry.lock ./pyproject.toml ./
-RUN poetry install --only main
+# Copy our Python requirements here
+COPY ./pyproject.toml .
+
+# Install uv and Python dependencies
+# Note: Turn off pip progress bar because it seemed to cause some issues on deployment
+# Note: Using a virtualenv seems unnecessary, but it reduces the size of the resulting Docker image
+RUN --mount=type=cache,target=/root/.cache/pip --mount=type=cache,target=/root/.cache/uv \
+    python -m pip config --user set global.progress_bar off && \
+    python -m pip --disable-pip-version-check --no-color --no-input install --upgrade pip uv && \
+    uv venv /opt/venv && \
+    uv pip install --requirement pyproject.toml
 
 
-# 'production' stage uses the clean 'python-base' stage and copies
-# in only our runtime deps that were installed in the 'builder-base'
-FROM python-base as production
+# Layer with only the Python dependencies needed for serving the app in production
+FROM python AS production
 
-COPY --from=builder-base $VENV_PATH $VENV_PATH
-COPY . /app
-WORKDIR /app
+# Copy over just the code
+COPY /site /site
+
+# Copy over the virtualenv and add it to the path
+COPY --from=dependencies /opt/venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+WORKDIR /site
 
 EXPOSE 80
 
-# Collect static assets
-RUN python app.py collectstatic -v 2 --noinput
+# Install curl, collect static assets, compress static assets
+RUN --mount=type=cache,target=/var/cache/apt,sharing=locked --mount=type=cache,target=/var/lib/apt,sharing=locked \
+    apt-get update --fix-missing && \
+    apt-get install --no-install-recommends -y curl wget && \
+    python app.py collectstatic -v 2 --noinput
+
+HEALTHCHECK --interval=1m --timeout=10s --start-period=5s --retries=3 \
+  CMD curl -s http://0.0.0.0:80/ || exit 1
 
 # Run gunicorn
 CMD ["gunicorn", "app:wsgi", "--config=gunicorn.conf.py"]
