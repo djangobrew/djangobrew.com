@@ -1,4 +1,5 @@
 version = 1
+revision = 1
 requires-python = ">=3.10, <4.0"
 
 [[package]]
@@ -63,7 +64,7 @@ name = "click"
 version = "8.1.7"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "colorama", marker = "platform_system == 'Windows'" },
+    { name = "colorama", marker = "sys_platform == 'win32'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz", hash = "sha256:ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de", size = 336121 }
 wheels = [
@@ -93,7 +94,7 @@ wheels = [
 
 [[package]]
 name = "coltrane"
-version = "0.37.0"
+version = "0.36.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "click" },
@@ -112,9 +113,9 @@ dependencies = [
     { name = "pywatchman" },
     { name = "rich-click" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/9a/85/2227eadd4f4d7e944281680652e7dff456a46ba0f469bc3d6fe8544e9fc0/coltrane-0.37.0.tar.gz", hash = "sha256:16d84c8b93486c77ee2310a807c460441a236dd0c56c75f153ee98ca63eef901", size = 498461 }
+sdist = { url = "https://files.pythonhosted.org/packages/08/2e/987b8ed9dbf7b5a89c0d2464366f51305bf52767176e53d1bce776777498/coltrane-0.36.0.tar.gz", hash = "sha256:e91e9556dc4dcbd0ae67034ff1ee97d9945d985d51e875beb48b6cd8655a9ee6", size = 33564 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/b8/d1/88654f1f0fbe4a0ed240886031f8365298e097a3c76d0d265fcc196c8afd/coltrane-0.37.0-py3-none-any.whl", hash = "sha256:87d9eee059440b1ccc8a8665ef1e4cb5e37c562fefb4ade0f579f9100ac842d7", size = 40250 },
+    { url = "https://files.pythonhosted.org/packages/c4/2f/f1bcc62de802b3841d2736a7c6979d19c4207f34bf740bb82408daf56800/coltrane-0.36.0-py3-none-any.whl", hash = "sha256:c7cdd5f8d5fee91a3780b3ac118893c1b7eeecbd4817039f8964b74ba5378844", size = 38728 },
 ]
 
 [package.optional-dependencies]
@@ -190,7 +191,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "coltrane", extras = ["deploy", "json5"], specifier = ">=0.36.0,<1" },
+    { name = "coltrane", extras = ["deploy", "json5"], specifier = "==0.36.0" },
     { name = "hiredis", specifier = ">=2.3.2,<3.0.0" },
     { name = "httpx", specifier = ">=0.27.0" },
     { name = "redis", specifier = ">=5.0.3,<6.0.0" },
@@ -796,7 +797,7 @@ name = "tzlocal"
 version = "5.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "tzdata", marker = "platform_system == 'Windows'" },
+    { name = "tzdata", marker = "sys_platform == 'win32'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/04/d3/c19d65ae67636fe63953b20c2e4a8ced4497ea232c43ff8d01db16de8dc0/tzlocal-5.2.tar.gz", hash = "sha256:8d399205578f1a9342816409cc1e46a93ebd5755e39ea2d85334bea911bf0e6e", size = 30201 }
 wheels = [

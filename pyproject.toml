@@ -9,7 +9,7 @@ authors = [
   {name = "Sangeeta Jadoonanan", email = "sjbitcode@gmail.com"}
 ]
 dependencies = [
-    "coltrane[deploy,json5]>=0.36.0<1",
+    "coltrane[deploy,json5]==0.36.0",
     "httpx>=0.27.0",
     "redis>=5.0.3,<6.0.0",
     "hiredis>=2.3.2,<3.0.0",
